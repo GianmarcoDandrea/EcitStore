@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
                 <div class="card">
-                    <div class="card-header text-center fw-bold">{{ __('Dashboard') }}</div>
+                    <div class="card-header text-light text-center fw-bold" style="background-color: #1e9bd8">{{ __('Dashboard') }}</div>
 
                     <div class="card-body text-center text-dark" >
                         @if (session('status'))
@@ -18,7 +18,7 @@
                         <strong>{{ __('You are logged in!') }}</strong>
 
                         <div class="card text-center mt-3">
-                            <div class="card-header fw-bold">
+                            <div class="card-header text-light fw-bold" style="background-color: #1e9bd8">
                                 Your Profile
                             </div>
                             <div class="card-body text-dark" >
@@ -32,7 +32,7 @@
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
                                         <a class="row g-0 text-decoration-none" href="/">
                                             <div class="col-md-12 text-center">
-                                                <i class="fa-solid fa-utensils fa-style fa-lg fa-fw text-dark"></i>
+                                                <i class="fa-solid fa-object-group fa-style fa-lg fa-fw text-dark"></i>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
@@ -46,7 +46,7 @@
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
                                         <a class="row g-0 text-decoration-none" href="/">
                                             <div class="col-md-12 text-center">
-                                                <i class="fa-solid fa-receipt fa-style fa-lg fa-fw text-dark"></i>
+                                                <i class="fa-solid fa-tags fa-style fa-lg fa-fw text-dark"></i>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
@@ -59,7 +59,7 @@
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
                                         <a class="row g-0 text-decoration-none" href="/">
                                             <div class="col-md-12 text-center">
-                                                <i class="fa-solid fa-chart-simple fa-style fa-lg fa-fw text-dark"></i>
+                                                <i class="fa-solid fa-layer-group fa-style fa-lg fa-fw text-dark"></i>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
@@ -70,11 +70,6 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer text-body-secondary d-flex justify-content-center align-content-center " >
-                                <button disabled class="btn btn-outline-secondary text-dark">
-                                    Support
-                                </button>
                             </div>
                         </div>
                     </div>

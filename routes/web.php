@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +39,10 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::resource('orders', ItemController::class)->parameters(['items' => 'item:slug']);
+       Route::resource('items',ItemController::class);
+       Route::resource('tags',TagController::class)->parameters(['tags' => 'tag:slug']);
+       Route::resource('categories',CategoryController::class)->parameters(['categories' => 'category:slug']);
+       
 
         Route::get('/dashboard', function () {
             $user = auth()->user();
