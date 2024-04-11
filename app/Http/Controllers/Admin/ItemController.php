@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Item\StoreItemRequest;
+use App\Http\Requests\Item\UpdateItemRequest;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\Tag;
@@ -95,9 +96,31 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateItemRequest $request,Item $item)
     {
-        //
+        $form_data = $request->validated();
+
+
+        if ($request->hasFile('image')) {
+            if ($item->image) {
+                Storage::delete($item->image);
+            }
+
+            $path = Storage::put('items_images', $request->image);
+            $form_data['image'] = $path;
+        }
+        
+
+        if ($request->has('tags')) {
+            $item->tags()->sync($request->tags);
+        } else {
+            $item->tags()->sync([]);
+        }
+        
+
+        $item->update($form_data);
+
+        return redirect()->route('admin.items.show', ['item' => $item->id]);
     }
 
     /**
@@ -108,6 +131,13 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::where('id', $id)->first();
+
+        $item->delete();
+        if ($item->image) {
+            Storage::delete($item->image);
+        }
+
+        return redirect()->route('admin.items.index')->with('message', 'The item "' . $item->name . '" has been deleted');
     }
 }

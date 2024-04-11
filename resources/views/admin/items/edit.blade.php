@@ -30,6 +30,22 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="price" class="form-label badge text-dark p-2">Price:</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">€</span>
+                    <input type="text" required min="0"
+                        class="form-control @error('price') is-invalid
+                    
+                @enderror"
+                        style="max-height: 250px" id="price" name="price"
+                        value="{{ old('price', $item->price) }}">
+                    @error('price')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
             <div class="mb-3 has-validation">
                 <label for="type" class="fw-bold">Select category of your item:</label>
                 <select class="form-select @error('category') is-invalid @enderror" name="category_id" id="category">
@@ -47,19 +63,20 @@
 
             <div class="mb-4 has-validation">
                 <p class="form-label fw-bold">Select the tags of your item:</p>
-
-                @foreach ($tags as $tag)
-                    <div class="form-check">
-                        <input @checked($errors->any() ? in_array($tags->id, old('roles', [])) : $item->tags->contains($tag))
-                            type="checkbox"
-                            class="@error('technologies') is-invalid @enderror" 
-                            id="tag-{{ $tag->id }}"
-                            value="{{ $tag->id }}" 
-                            name="technologies[]">
-
-                        <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
-                    </div>
-                @endforeach
+                <div class="d-flex flex-wrap">
+                    @foreach ($tags as $tag)
+                        <div class="form-check">
+                            <input @checked($errors->any() ? in_array($tag->id, old('tags', [])) : $item->tags->contains($tag))
+                                type="checkbox"
+                                class="@error('tags') is-invalid @enderror" 
+                                id="tag-{{ $tag->id }}"
+                                value="{{ $tag->id }}" 
+                                name="tags[]">
+    
+                            <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
+                        </div>
+                    @endforeach
+                </div>
 
 
                 @error('tags')
@@ -73,7 +90,7 @@
             </div>
 
             <div class="mb-2 mx-auto w-100">
-                <img id="preview-img" src="{{ asset('storage/' . $item->image) }}" alt="">
+                <img id="preview-img" src="{{ asset('storage/' . $item->image) }}" alt="" class="w-75">
             </div>
 
             <button class="btn btn-success" type="submit">Save</button>
