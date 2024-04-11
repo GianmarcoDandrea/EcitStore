@@ -75,8 +75,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('admin.items.index') }}">
-                                    <i class="fa-solid fa-layer-group fa-style fa-lg fa-fw text-white"></i> Category
+                                <a class="nav-link text-white" href="{{ route('admin.categories.index') }}">
+                                    <i class="fa-solid fa-layer-group fa-style fa-lg fa-fw text-white"></i> Categories
                                 </a>
                             </li>
 

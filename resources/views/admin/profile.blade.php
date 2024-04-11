@@ -44,7 +44,7 @@
                                         </a>
                                     </div>
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
-                                        <a class="row g-0 text-decoration-none" href="/">
+                                        <a class="row g-0 text-decoration-none" href="{{ route('admin.tags.index') }}">
                                             <div class="col-md-12 text-center">
                                                 <i class="fa-solid fa-tags fa-style fa-lg fa-fw text-dark"></i>
                                             </div>
@@ -57,7 +57,7 @@
                                         </a>
                                     </div>
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
-                                        <a class="row g-0 text-decoration-none" href="/">
+                                        <a class="row g-0 text-decoration-none" href="{{ route('admin.categories.index') }}">
                                             <div class="col-md-12 text-center">
                                                 <i class="fa-solid fa-layer-group fa-style fa-lg fa-fw text-dark"></i>
                                             </div>

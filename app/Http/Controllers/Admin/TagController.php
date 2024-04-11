@@ -92,8 +92,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        $type = Tag::where('slug', $tag->slug)->first();
-        $type->delete();
+        $tag = Tag::where('slug', $tag->slug)->first();
+        $tag->delete();
 
         return redirect()->route('admin.tags.index')->with('message', 'The tag "' . $tag->name . '" has been deleted');
     }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Category\StoreCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -33,9 +37,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        $tag = new Category();
+        $tag->fill($form_data);
+        $tag->save();
+
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -55,9 +64,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -67,9 +76,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $form_data = $request->validated();
+        $category->update($form_data);
+
+        return redirect()->route('admin.categories.index', ['category' => $category->slug]);
     }
 
     /**
@@ -78,8 +90,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category = Category::where('slug', $category->slug)->first();
+        $category->delete();
+
+        return redirect()->route('admin.categories.index')->with('message', 'The category "' . $category->name . '" has been deleted');
     }
 }
