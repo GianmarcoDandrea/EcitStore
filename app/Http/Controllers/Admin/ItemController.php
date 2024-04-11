@@ -20,7 +20,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-        return view('admin.items.create', compact('items'));
+        return view('admin.items.index', compact('items'));
     }
 
     /**
@@ -80,9 +80,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Item $item)
     {
-        //
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('admin.items.edit', compact('item', 'categories', 'tags'));
     }
 
     /**

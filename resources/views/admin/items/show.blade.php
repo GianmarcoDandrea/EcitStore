@@ -6,7 +6,7 @@
         <h2 class="fs-1 mb-3">{{ $item->title }}</h2>
 
         @if ($item->image)
-            <div>
+            <div class="w-25">
                 <img src="{{ asset('storage/' . $item->image) }}" alt="">
             </div>
         @else
@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <hr>
+        <hr class="w-50">
 
         <ul>
             <li class="mt-5 fs-5">
@@ -37,12 +37,22 @@
             </li>
 
             <li class="mt-2 fs-5">
+                <span class="fw-bold ">Price: </span> {{ $item->price }} €
+            </li>
+
+            <li class="mt-2 fs-5">
                 <span class="fw-bold">Added: </span> {{ date('d-m-Y', strtotime($item->created_at)) }}
             </li>
+
+            @if ($item->updated_at != $item->created_at)
+            <li class="mt-2 fs-5">
+                <span class="fw-bold">Updated: </span> {{ date('d-m-Y', strtotime($item->updated_at)) }}
+            </li>
+            @endif
         </ul>
 
 
-        <a href="#" class="btn btn-warning">Edit Your Item
+        <a href="{{ route('admin.items.edit', ['item' => $item->id]) }}" class="btn btn-warning">Edit Your Item
         </a>
 
         <form action="#" class="d-inline-block"

@@ -30,7 +30,7 @@
                                 <hr class="hr">
                                 <div class="d-flex justify-content-center">
                                     <div class="mb-3 mx-2 card card-custom p-3 w-25">
-                                        <a class="row g-0 text-decoration-none" href="/">
+                                        <a class="row g-0 text-decoration-none" href="{{ route('admin.items.index') }}">
                                             <div class="col-md-12 text-center">
                                                 <i class="fa-solid fa-object-group fa-style fa-lg fa-fw text-dark"></i>
                                             </div>

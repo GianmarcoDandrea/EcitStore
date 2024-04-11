@@ -64,7 +64,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                    <i class="fa-solid fa-user fa-lg fa-fw"></i> Profile
                                 </a>
                             </li>
 

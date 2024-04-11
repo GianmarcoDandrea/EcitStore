@@ -1,11 +1,11 @@
 const previewImgElem = document.getElementById('preview-img');
 
-const image = document.getElementById('cover_image');
+const image = document.getElementById('image');
 
 if(image) {
     image.addEventListener('change', function() {
         const selectedFile = this.files[0];
-        console.log(selectedFile);
+        // console.log(selectedFile);
         if(selectedFile) {
             const reader = new FileReader();
             reader.addEventListener("load", function() {
