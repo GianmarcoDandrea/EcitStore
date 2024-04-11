@@ -87,6 +87,10 @@
         <main class="">
             @yield('content')
         </main>
+
+        <footer class="py-3 text-center">
+           <span> © 2024 Ecit. All rights reserved.</span>
+        </footer>
     </div>
 </body>
 

@@ -81,7 +81,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('admin.items.index') }}">
+                                <a class="nav-link text-white" href="{{ route('admin.tags.index') }}">
                                     <i class="fa-solid fa-tags fa-style fa-lg fa-fw text-white"></i> Tags
                                 </a>
                             </li>

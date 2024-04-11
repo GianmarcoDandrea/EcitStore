@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->decimal('price', $precision = 5, $scale = 2)->unsigned();
+            $table->decimal('price')->unsigned();
             $table->string('image')->nullable();
             $table->timestamps();
         });
