@@ -96,7 +96,7 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateItemRequest $request,Item $item)
+    public function update(UpdateItemRequest $request, Item $item)
     {
         $form_data = $request->validated();
 
@@ -109,14 +109,14 @@ class ItemController extends Controller
             $path = Storage::put('items_images', $request->image);
             $form_data['image'] = $path;
         }
-        
+
 
         if ($request->has('tags')) {
             $item->tags()->sync($request->tags);
         } else {
             $item->tags()->sync([]);
         }
-        
+
 
         $item->update($form_data);
 
