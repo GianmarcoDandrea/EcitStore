@@ -87,7 +87,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('admin.items.index') }}">
+                                <a class="nav-link text-white" href="{{ route('admin.items.trashed') }}"">
                                     <i class="fa-solid fa-trash fa-style fa-lg fa-fw text-white"></i> Deleted Items
                                 </a>
                             </li>

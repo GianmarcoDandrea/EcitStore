@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\TrashedController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,15 +40,24 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-       Route::resource('items',ItemController::class);
-       Route::resource('tags',TagController::class)->parameters(['tags' => 'tag:slug']);
-       Route::resource('categories',CategoryController::class)->parameters(['categories' => 'category:slug']);
-       
-
+        // middleware route for admin and not admin
         Route::get('/dashboard', function () {
             $user = auth()->user();
             return view('admin.dashboard', ['email' => $user->email, 'address' => $user->address]);
         })->middleware(['auth', 'verified', 'admin'])->name('admin.dashboard');
+
+        // route for item, tags and categoris
+        Route::resource('items',ItemController::class);
+        Route::resource('tags',TagController::class)->parameters(['tags' => 'tag:slug']);
+        Route::resource('categories',CategoryController::class)->parameters(['categories' => 'category:slug']);
+
+        // route for trashed items
+
+        Route::get('trashed', [TrashedController::class, 'index'])->name('items.trashed');
+        Route::get('trashed/{item:id}', [TrashedController::class, 'restore'])->withTrashed()->name('restore');
+        Route::delete('trashed/{item:id}', [TrashedController::class, 'delete'])->withTrashed()->name('delete');
+       
+
         
     });
 

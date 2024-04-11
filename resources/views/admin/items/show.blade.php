@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 
 @section('content')
@@ -21,11 +20,10 @@
             <li class="mt-5 fs-5">
                 <span class="fw-bold ">Tags:
                 </span>
-                @foreach ( $item->tags as $tag)
-                <span class="badge bg-light text-dark fs-5" > {{ $tag->name }} </span>
-           
+                @foreach ($item->tags as $tag)
+                    <span class="badge bg-light text-dark fs-5"> {{ $tag->name }} </span>
                 @endforeach
-           </li>
+            </li>
 
             <li class="mt-2 fs-5">
                 <span class="fw-bold ">Category:
@@ -45,30 +43,30 @@
             </li>
 
             @if ($item->updated_at != $item->created_at)
-            <li class="mt-2 fs-5">
-                <span class="fw-bold">Updated: </span> {{ date('d-m-Y', strtotime($item->updated_at)) }}
-            </li>
+                <li class="mt-2 fs-5">
+                    <span class="fw-bold">Updated: </span> {{ date('d-m-Y', strtotime($item->updated_at)) }}
+                </li>
             @endif
         </ul>
 
 
-        <a href="{{ route('admin.items.edit', ['item' => $item->id]) }}" class="btn btn-warning">Edit Your Item
-        </a>
+        <div class=" d-flex gap-3">
+            <a href="{{ route('admin.items.edit', ['item' => $item->id]) }}" class="btn btn-warning">Edit Your Item</a>
 
-        <form action="#" class="d-inline-block"
-            method="POST">
+            <form action="{{ route('admin.items.destroy', ['item' => $item->id]) }}" "#" action=class="d-inline-block"
+                method="POST">
 
-            @csrf
-            @method('DELETE')
+                @csrf
+                @method('DELETE')
 
-            <button class="btn btn-danger btn-delete" type="submit" data-title="{{ $item->title }}">
-                Delete
-            </button>
+                <button type="button" class="btn btn-danger btn-delete" data-bs-toggle="modal" data-bs-target="#delete-modal" data-title="{{ $item->name }}">
+                    Delete
+                </button>
+                @include('admin.items.partials.delete-modal')
 
-        </form>
+            </form>
+        </div>
     </div>
-
-    @include('partials.delete-modal')
 @endsection
 
 @section('scripts')

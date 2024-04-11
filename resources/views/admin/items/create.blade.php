@@ -33,7 +33,7 @@
                 <label for="price" class="form-label badge text-dark p-2">Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">€</span>
-                    <input required min="0" pattern="^\d{1,3}(\.\d{1,2})?" type="text"
+                    <input required min="0"type="text"
                         class="form-control @error('price') is-invalid @enderror" style="max-height: 250px" id="price"
                         name="price" value="{{ old('price') }}">
                     @error('price')
