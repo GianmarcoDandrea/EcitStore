@@ -61,20 +61,21 @@
 
             <div class="mb-4 has-validation">
                 <p class="form-label fw-bold">Select the tags of your project:</p>
-
-                @foreach ($tags as $tag)
-                    <div class="form-check">
-                        <input @checked(in_array($tag->id, old('tags', [])))
-                            type="checkbox"
-                            class="@error('tags') is-invalid @enderror" 
-                            id="tag-{{ $tag->id }}"
-                            value="{{ $tag->id }}" 
-                            name="tags[]">
-
-                        <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
-                    </div>
-                @endforeach
-
+                
+                <div class="d-flex flex-wrap">
+                    @foreach ($tags as $tag)
+                        <div class="form-check">
+                            <input @checked(in_array($tag->id, old('tags', [])))
+                                type="checkbox"
+                                class="@error('tags') is-invalid @enderror" 
+                                id="tag-{{ $tag->id }}"
+                                value="{{ $tag->id }}" 
+                                name="tags[]">
+    
+                            <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
+                        </div>
+                    @endforeach
+                </div>
 
                 @error('tags')
                     <div class="invalid-feedback">{{ $message }}</div>

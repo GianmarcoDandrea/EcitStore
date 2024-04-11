@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container mt-3 mb-5">
-        <h2 class="fs-1 mb-3">{{ $item->title }}</h2>
+        <h2 class="fs-1 mb-3">{{ $item->name }}</h2>
 
         @if ($item->image)
             <div class="w-25">
                 <img src="{{ asset('storage/' . $item->image) }}" alt="">
             </div>
         @else
-            <div>
+            <div class="w-25">
                 <img src="{{ Vite::asset('resources/img/image_not_available.jpg') }}" alt="">
             </div>
         @endif

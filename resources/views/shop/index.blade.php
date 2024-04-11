@@ -22,18 +22,20 @@
                             <img src="{{ Vite::asset('resources/img/image_not_available.jpg') }}" alt="">
                         </div>
                     @endif
-                    <div class="card-body">
-                        <h5 class="card-title">{{ ucfirst($item->name) }}</h5>
-                        <p class="card-text">{{ ucfirst($item->description) }}</p>
-                        <p class="card-text">
-                        <p class="card-text"> <strong>Price</strong> {{ $item->price }} €</p>
-                        <p class="card-text"> <strong>Tag</strong>:
+                    <div class="card-body d-flex flex-wrap">
+                        <h5 class="card-title w-100">{{ ucfirst($item->name) }}</h5>
+                        <p class="card-text w-100">{{ ucfirst($item->description) }}</p>
+                        <p class="card-text w-100">
+                        <p class="card-text w-100"> <strong>Price:</strong> {{ $item->price }} €</p>
+                        <p class="card-text w-100"> <strong>Category:</strong> {{ ucfirst($item->category->name) }}</p>
+                        <p class="card-text w-100"> <strong>Tags:</strong>
                             @foreach ($item->tags as $tag)
                                 <span class="badge" style="background-color: #359ed0"> {{ ucfirst($tag->name) }}</span>
                             @endforeach
                         </p>
-                        <a href="{{ route('show', $item->id) }}" class="btn text-light"
-                            style="background-color: #359ed0">Details</a>
+                        <a href="{{ route('show', $item->id) }}" class="btn text-light w-100" style="background-color: #359ed0">
+                            Details
+                        </a>
                     </div>
                 </div>
             @endforeach

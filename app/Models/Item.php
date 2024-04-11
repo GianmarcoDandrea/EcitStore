@@ -23,7 +23,7 @@ class Item extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function categories() {
-        return $this->belongTo(Category::class);
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }
