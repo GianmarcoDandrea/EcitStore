@@ -19,8 +19,8 @@
                                 <tr>
                                     <td scope="row" class="fw-bold">{{ $tag->name }}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ route('admin.tags.show', ['tag' => $tag->slug]) }}">
-                                            Details
+                                        <a class="btn btn-success" href="{{ route('admin.tags.edit', ['tag' => $tag->slug]) }}">
+                                            Edit
                                         </a>
 
                                         <form action="{{ route('admin.tags.destroy', ['tag' => $tag->slug]) }}" class="d-inline-block" method="POST">

@@ -12,7 +12,7 @@ class Tag extends Model
 
     public $fillable = ['name' ,'slug'];
 
-    public function setSlugAttribute($value)
+    public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);

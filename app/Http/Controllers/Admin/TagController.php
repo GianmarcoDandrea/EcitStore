@@ -41,7 +41,6 @@ class TagController extends Controller
     {
         $form_data = $request->validated();
         $tag = new Tag();
-        dd($form_data);
         $tag->fill($form_data);
         $tag->save();
 
@@ -67,7 +66,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('admin.tags.edit', compact('tags'));
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -82,7 +81,7 @@ class TagController extends Controller
         $form_data = $request->validated();
         $tag->update($form_data);
 
-        return redirect()->route('admin.tags.show', ['tag' => $tag->slug]);
+        return redirect()->route('admin.tags.index', ['tag' => $tag->slug]);
     }
 
     /**
