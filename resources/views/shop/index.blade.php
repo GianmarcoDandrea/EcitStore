@@ -22,7 +22,7 @@
                             <img src="{{ Vite::asset('resources/img/image_not_available.jpg') }}" alt="">
                         </div>
                     @endif
-                    <div class="card-body d-flex flex-wrap">
+                    <div class="card-body">
                         <h5 class="card-title w-100">{{ ucfirst($item->name) }}</h5>
                         <p class="card-text w-100">{{ ucfirst($item->description) }}</p>
                         <p class="card-text w-100">
