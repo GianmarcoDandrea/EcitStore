@@ -46,6 +46,7 @@ class UserController extends Controller
         $user->fill($form_data);
         $user->password = Hash::make($user->password);
         $user->type = 'guest';
+        // dd($user);
         event(new Registered($user));
         
         $user->save();

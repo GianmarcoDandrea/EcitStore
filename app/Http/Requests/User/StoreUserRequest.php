@@ -29,6 +29,7 @@ class StoreUserRequest extends FormRequest
             'name' => ['required','string', 'max:255'],
             'surname' => ['required','string', 'max:255'],
             'email' => ['required','email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'max:30', 'min:8']
         ];
     }
 
@@ -44,7 +45,10 @@ class StoreUserRequest extends FormRequest
             'email.required' => 'Email of the user is required',
             'email.email' => 'Email of the user must be of email format',
             'email.max' => 'Email lenght must max of :max letters',
-            'email.unique' =>'This email is already takes. Choose another one'
+            'email.unique' =>'This email is already takes. Choose another one',
+            'password.required' =>'Password is required',
+            'password.min' => 'Password must be at least of :min letters and numbers',
+            'password.max' => 'Password must be max of :min letters and numbers'
         ];
     }
 }
