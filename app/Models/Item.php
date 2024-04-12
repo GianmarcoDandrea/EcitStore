@@ -13,17 +13,20 @@ class Item extends Model
     use SoftDeletes;
 
 
-    public $fillable = ['name' , 'user_id' , 'category_id' , 'description' , 'price' , 'image'];
+    public $fillable = ['name', 'user_id', 'category_id', 'description', 'price', 'image'];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongTo(User::class);
     }
 
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }

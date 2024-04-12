@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::where('type', '=' , 'guest')->get();
+        $users = User::where('type', '=', 'guest')->get();
         return view('admin.users.index', compact('users'));
     }
 
@@ -48,7 +48,7 @@ class UserController extends Controller
         $user->type = 'guest';
         // dd($user);
         event(new Registered($user));
-        
+
         $user->save();
 
         return redirect()->route('admin.users.show', ['user' => $user->id]);

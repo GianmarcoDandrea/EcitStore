@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <div class="mx-3" style="width:6%">
-                    <img src="{{ Vite::asset("resources/img/logo.jpg") }}" alt="" style="max-width: 100%">
+                    <img src="{{ Vite::asset('resources/img/logo.jpg') }}" alt="" style="max-width: 100%">
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -59,7 +59,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} {{ Auth::user()->surname}}
+                                    {{ Auth::user()->name }} {{ Auth::user()->surname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -89,8 +89,8 @@
         </main>
 
         <footer class="py-3 text-center mt-5" style="background-color: #359ed0; color:#ffffff">
-            
-           <span> © 2024 Ecit. All rights reserved.</span>
+
+            <span> © 2024 Ecit. All rights reserved.</span>
         </footer>
     </div>
 </body>

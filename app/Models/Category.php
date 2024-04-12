@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    public $fillable = ['name' , 'slug'];
+    public $fillable = ['name', 'slug'];
 
     public function setNameAttribute($value)
     {
@@ -19,7 +19,8 @@ class Category extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function items() {
+    public function items()
+    {
         return $this->hasMany(Item::class);
     }
 }

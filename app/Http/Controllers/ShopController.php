@@ -14,13 +14,13 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $items = Item::all();
         $categories = Category::all();
         $tags = Tag::all();
 
         return view('shop.index', compact('items', 'categories', 'tags'));
-
     }
 
     /**
@@ -33,5 +33,4 @@ class ShopController extends Controller
     {
         return view('shop.show', compact('item'));
     }
-
 }

@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 
 @section('content')
@@ -33,9 +32,8 @@
                 <label for="price" class="form-label badge text-dark p-2">Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">€</span>
-                    <input required min="0"type="text"
-                        class="form-control @error('price') is-invalid @enderror" style="max-height: 250px" id="price"
-                        name="price" value="{{ old('price') }}">
+                    <input required min="0"type="text" class="form-control @error('price') is-invalid @enderror"
+                        style="max-height: 250px" id="price" name="price" value="{{ old('price') }}">
                     @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -61,17 +59,13 @@
 
             <div class="mb-4 has-validation">
                 <p class="form-label fw-bold">Select the tags of your project:</p>
-                
+
                 <div class="d-flex flex-wrap">
                     @foreach ($tags as $tag)
                         <div class="form-check">
-                            <input @checked(in_array($tag->id, old('tags', [])))
-                                type="checkbox"
-                                class="@error('tags') is-invalid @enderror" 
-                                id="tag-{{ $tag->id }}"
-                                value="{{ $tag->id }}" 
-                                name="tags[]">
-    
+                            <input @checked(in_array($tag->id, old('tags', []))) type="checkbox" class="@error('tags') is-invalid @enderror"
+                                id="tag-{{ $tag->id }}" value="{{ $tag->id }}" name="tags[]">
+
                             <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
                         </div>
                     @endforeach
@@ -85,7 +79,8 @@
 
             <div class="mb-4">
                 <label for="image" class="form-label fw-bold">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
+                <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                    name="image">
 
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -93,8 +88,7 @@
             </div>
 
             <div class="m-2 mx-auto w-100">
-                <img id="preview-img" alt=""
-                    style="max-height: 250px">
+                <img id="preview-img" alt="" style="max-height: 250px">
             </div>
 
             <button class="btn btn-success" type="submit">Save</button>

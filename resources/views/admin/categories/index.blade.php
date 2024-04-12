@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container mt-5" >
+    <div class="container mt-5">
 
-        <div class="w-100 d-flex justify-content-between gap-5" >
+        <div class="w-100 d-flex justify-content-between gap-5">
             <div class="list-type-section w-50">
                 <h2 class="mb-5">List of Categories </h2>
                 @if (count($categories) > 0)
@@ -19,19 +19,23 @@
                                 <tr>
                                     <td scope="row" class="fw-bold">{{ $category->name }}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ route('admin.categories.edit', ['category' => $category->slug]) }}">
+                                        <a class="btn btn-success"
+                                            href="{{ route('admin.categories.edit', ['category' => $category->slug]) }}">
                                             Edit
                                         </a>
 
-                                        <form action="{{ route('admin.categories.destroy', ['category' => $category->slug]) }}" class="d-inline-block" method="POST">
+                                        <form
+                                            action="{{ route('admin.categories.destroy', ['category' => $category->slug]) }}"
+                                            class="d-inline-block" method="POST">
 
                                             @csrf
                                             @method('DELETE')
-                                            
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"">
+
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#delete-modal"">
                                                 Delete
                                             </button>
-                                            
+
                                             @include('admin.categories.partials.delete-modal')
                                         </form>
                                     </td>
@@ -55,10 +59,11 @@
 
                     <div class="mb-3 has-validation align-self-end" style="width: 90%">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
-                        
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                            name="name" value="{{ old('name') }}">
+
                         @error('name')
-                        <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 

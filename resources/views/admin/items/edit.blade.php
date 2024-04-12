@@ -21,7 +21,7 @@
             </div>
 
             <div class="mb-3 has-validation">
-                <label class="description-box form-label fw-bold" for="description" >Description</label>
+                <label class="description-box form-label fw-bold" for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" rows="3"
                     name="description">{{ old('description', $item->description) }}</textarea>
 
@@ -38,8 +38,7 @@
                         class="form-control @error('price') is-invalid
                     
                 @enderror"
-                        style="max-height: 250px" id="price" name="price"
-                        value="{{ old('price', $item->price) }}">
+                        style="max-height: 250px" id="price" name="price" value="{{ old('price', $item->price) }}">
                     @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -66,13 +65,9 @@
                 <div class="d-flex flex-wrap">
                     @foreach ($tags as $tag)
                         <div class="form-check">
-                            <input @checked($errors->any() ? in_array($tag->id, old('tags', [])) : $item->tags->contains($tag))
-                                type="checkbox"
-                                class="@error('tags') is-invalid @enderror" 
-                                id="tag-{{ $tag->id }}"
-                                value="{{ $tag->id }}" 
-                                name="tags[]">
-    
+                            <input @checked($errors->any() ? in_array($tag->id, old('tags', [])) : $item->tags->contains($tag)) type="checkbox" class="@error('tags') is-invalid @enderror"
+                                id="tag-{{ $tag->id }}" value="{{ $tag->id }}" name="tags[]">
+
                             <label for="tag-{{ $tag->id }}"> {{ $tag->name }} </label>
                         </div>
                     @endforeach

@@ -10,7 +10,7 @@ class Tag extends Model
 {
     use HasFactory;
 
-    public $fillable = ['name' ,'slug'];
+    public $fillable = ['name', 'slug'];
 
     public function setNameAttribute($value)
     {
@@ -18,7 +18,8 @@ class Tag extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function items() {
+    public function items()
+    {
         return $this->belongsToMany(Item::class);
     }
 }

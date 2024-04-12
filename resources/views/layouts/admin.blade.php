@@ -31,7 +31,7 @@
             <nav class=" w-100 navbar navbar-expand-lg  shadow sticky-top">
                 <div class="w-100 d-flex justify-content-between">
                     <div class="mx-3" style="width:5%">
-                        <img src="{{ Vite::asset("resources/img/logo.jpg") }}" alt="" style="max-width: 100%">
+                        <img src="{{ Vite::asset('resources/img/logo.jpg') }}" alt="" style="max-width: 100%">
                     </div>
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarScroll">
@@ -59,7 +59,8 @@
         <div class="container-fluid vh-100">
             <div class="row h-100">
 
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse shadow" style="background-color: #359ed0">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block navbar-dark sidebar collapse shadow"
+                    style="background-color: #359ed0">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
