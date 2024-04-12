@@ -89,8 +89,10 @@
                 <input type="file" class="form-control" id="image" name="image">
             </div>
 
-            <div class="mb-2 mx-auto w-100">
-                <img id="preview-img" src="{{ asset('storage/' . $item->image) }}" alt="" class="w-75">
+            <div class="m-2 mx-auto w-100">
+                <p class="fw-bold">Image preview:</p>
+                <img id="preview-img" src="{{ asset('storage/' . $item->image) }}" alt=""
+                    style="max-height: 250px">
             </div>
 
             <button class="btn btn-success" type="submit">Save</button>

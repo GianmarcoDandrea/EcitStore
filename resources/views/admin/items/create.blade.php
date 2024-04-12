@@ -92,8 +92,9 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <img id="preview-img" src="" alt="" style="max-height: 250px">
+            <div class="m-2 mx-auto w-100">
+                <img id="preview-img" alt=""
+                    style="max-height: 250px">
             </div>
 
             <button class="btn btn-success" type="submit">Save</button>
