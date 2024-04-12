@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="jumbotron p-3 mb-4" style="background-color: #359ed0">
+    <div class="jumbotron text-center p-3 mb-4" style="background-color: #359ed0">
         <div class="container py-5">
             <h1 class="display-5 text-light fw-bold">
                 Welcome to Ecit Store

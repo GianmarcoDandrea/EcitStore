@@ -88,7 +88,8 @@
             @yield('content')
         </main>
 
-        <footer class="py-3 text-center">
+        <footer class="py-3 text-center mt-5" style="background-color: #359ed0; color:#ffffff">
+            
            <span> © 2024 Ecit. All rights reserved.</span>
         </footer>
     </div>
