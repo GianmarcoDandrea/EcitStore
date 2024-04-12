@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $tag->fill($form_data);
         $tag->save();
 
-        return redirect()->route('admin.tags.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**

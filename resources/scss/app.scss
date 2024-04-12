@@ -36,3 +36,12 @@ textarea {
 .email-column {
     width: 27%;
 }
+
+.card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-body{
+    flex: 0 0;
+}

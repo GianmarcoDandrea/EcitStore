@@ -44,7 +44,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal" data-title="{{ $item->name }}">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"">
                                         Delete
                                     </button>
 

@@ -27,12 +27,12 @@
 
                                             @csrf
                                             @method('DELETE')
-
-                                            <button class="btn btn-danger btn-delete" type="submit"
-                                                data-title="{{ $category->name }}">
+                                            
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"">
                                                 Delete
                                             </button>
-
+                                            
+                                            @include('admin.categories.partials.delete-modal')
                                         </form>
                                     </td>
                                 </tr>
@@ -48,7 +48,7 @@
 
 
             <div class="add-type-section w-50">
-                <h2 class="mb-5">Add a New category </h2>
+                <h2 class="mb-5">Add a New Category </h2>
 
                 <form class="d-flex flex-column" action="{{ route('admin.categories.store') }}" method="POST">
                     @csrf
@@ -70,5 +70,4 @@
         </div>
     </div>
 
-    @include('admin.categories.partials.delete-modal')
 @endsection

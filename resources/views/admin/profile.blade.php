@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
-                                                    <h5 class=" text-dark"><strong>Items</strong></h5>
+                                                    <h5 class=" text-dark fs-6"><strong>Items</strong></h5>
                                                     <p class="card-text"><small class="text-body-secondary">List of all your
                                                             items.</small></p>
                                                 </div>
@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
-                                                    <h5 class=" text-dark"><strong>Tags</strong></h5>
+                                                    <h5 class=" text-dark fs-6"><strong>Tags</strong></h5>
                                                     <p class="card-text"><small class="text-body-secondary">List of all your tags.</small></p>
                                                 </div>
                                             </div>
@@ -63,8 +63,21 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="card-body">
-                                                    <h5 class=" text-dark"><strong>Categories</strong></h5>
+                                                    <h5 class=" text-dark fs-6"><strong>Categories</strong></h5>
                                                     <p class="card-text"><small class="text-body-secondary">List of all your categories.</small></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3 mx-2 card card-custom p-3 w-25">
+                                        <a class="row g-0 text-decoration-none" href="{{ route('admin.users.index') }}">
+                                            <div class="col-md-12 text-center">
+                                                <i class="fa-solid fa-users fa-style fa-lg fa-fw text-dark"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="card-body">
+                                                    <h5 class=" text-dark fs-6"><strong>Users</strong></h5>
+                                                    <p class="card-text"><small class="text-body-secondary">List of all users.</small></p>
                                                 </div>
                                             </div>
                                         </a>

@@ -28,12 +28,12 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <button class="btn btn-danger btn-delete" type="submit"
-                                                data-title="{{ $tag->name }}">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal"">
                                                 Delete
                                             </button>
 
                                         </form>
+                                        @include('admin.tags.partials.delete-modal')
                                     </td>
                                 </tr>
                             @endforeach
@@ -69,6 +69,4 @@
 
         </div>
     </div>
-
-    @include('admin.tags.partials.delete-modal')
 @endsection
