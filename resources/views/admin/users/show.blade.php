@@ -13,7 +13,7 @@
             </li>
 
             <li class="mt-2 fs-5">
-                <span class="fw-bold ">Type: </span> {{ $user->type }}
+                <span class="fw-bold ">Type: </span> {{ ucfirst($user->type) }}
             </li>
 
             <li class="mt-2 fs-5">

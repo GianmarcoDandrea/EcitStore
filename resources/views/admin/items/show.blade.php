@@ -27,7 +27,7 @@
 
             <li class="mt-2 fs-5">
                 <span class="fw-bold ">Category:
-                </span>{{ $item->category ? $item->category->name : 'No category for this item' }}
+                </span>{{ ucfirst($item->category->name) }}
             </li>
 
             <li class="mt-2 fs-5">
