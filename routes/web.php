@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TrashedController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,10 +36,11 @@ Route::middleware(['auth', 'verified'])
             return view('admin.profile', ['email' => $user->email, 'address' => $user->address]);
         })->middleware(['auth', 'verified', 'admin'])->name('profile');
 
-        // route for item, tags and categoris
+        // route for items, tags , categories and users
         Route::resource('items',ItemController::class);
         Route::resource('tags',TagController::class)->parameters(['tags' => 'tag:slug']);
         Route::resource('categories',CategoryController::class)->parameters(['categories' => 'category:slug']);
+        Route::resource('users',UserController::class);
 
         // route for trashed items
         Route::get('trashed', [TrashedController::class, 'index'])->name('items.trashed');

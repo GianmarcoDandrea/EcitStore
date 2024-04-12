@@ -75,6 +75,12 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('admin.users.index') }}">
+                                    <i class="fa-solid fa-users fa-style fa-lg fa-fw text-white"></i> Users
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('admin.categories.index') }}">
                                     <i class="fa-solid fa-layer-group fa-style fa-lg fa-fw text-white"></i> Categories
                                 </a>
@@ -91,6 +97,7 @@
                                     <i class="fa-solid fa-trash fa-style fa-lg fa-fw text-white"></i> Deleted Items
                                 </a>
                             </li>
+
                         </ul>
 
 

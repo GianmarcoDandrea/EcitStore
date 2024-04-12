@@ -14,7 +14,7 @@
             @foreach ($items as $item)
                 <div class="card" style="width: 18rem;" style="width: 20%">
                     @if ($item->image)
-                        <div class="w-25">
+                        <div>
                             <img src="{{ asset('storage/' . $item->image) }}" alt="">
                         </div>
                     @else
