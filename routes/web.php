@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\TrashedController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ShopController;
+use App\Models\Category;
+use App\Models\Item;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Guest Route
-Route::get('/', [ShopController::class, 'index']);
-Route::get('/{item:id}', [ShopController::class, 'show'])->name('show');
-
-
 // Admin Route
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
@@ -37,10 +35,10 @@ Route::middleware(['auth', 'verified'])
         })->middleware(['auth', 'verified', 'admin'])->name('profile');
 
         // route for items, tags , categories and users
-        Route::resource('items',ItemController::class);
-        Route::resource('tags',TagController::class)->parameters(['tags' => 'tag:slug']);
-        Route::resource('categories',CategoryController::class)->parameters(['categories' => 'category:slug']);
-        Route::resource('users',UserController::class);
+        Route::resource('items', ItemController::class);
+        Route::resource('tags', TagController::class)->parameters(['tags' => 'tag:slug']);
+        Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
+        Route::resource('users', UserController::class);
 
         // route for trashed items
         Route::get('trashed', [TrashedController::class, 'index'])->name('items.trashed');
@@ -49,3 +47,7 @@ Route::middleware(['auth', 'verified'])
     });
 
 require __DIR__ . '/auth.php';
+
+// Guest Route
+Route::get('/', [ShopController::class, 'index']);
+Route::get('/{item:id}', [ShopController::class, 'show'])->name('show');
